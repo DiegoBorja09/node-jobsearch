@@ -15,15 +15,15 @@ function users(app){
 
         return res.json(users)
     })
-    router.post("/",async (req,res)=>{
+    router.post("/",...authValidation("admin"),async (req,res)=>{
         const user = await userServ.create(req.body)
         return res.json(user)
     })
-    router.put("/:id",async (req,res)=>{
+    router.put("/:id",...authValidation("admin"),async (req,res)=>{
         const user = await userServ.update(req.params.id,req.body)
         return res.json(user)
     })
-    router.delete("/:id",async (req,res)=>{
+    router.delete("/:id",...authValidation("admin"),async (req,res)=>{
         const user = await userServ.delete(req.params.id)
         return res.json(user)
     })
