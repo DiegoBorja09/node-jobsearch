@@ -15,10 +15,7 @@ function users(app){
 
         return res.json(users)
     })
-    router.post("/",...authValidation("admin"),async (req,res)=>{
-        const user = await userServ.create(req.body)
-        return res.json(user)
-    })
+   
     router.put("/:id",...authValidation("admin"),async (req,res)=>{
         const user = await userServ.update(req.params.id,req.body)
         return res.json(user)

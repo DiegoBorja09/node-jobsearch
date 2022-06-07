@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt")
 const { jwtSecret } = require("../config")
 const User = require("./users")
 
+
 class Auth{
     async login(data){
         // const email = data.email
@@ -45,6 +46,7 @@ class Auth{
 
     }
 
+
     //Mostrar Datos de Usuario Y crear un token
     #getUserData(user){
         const userData = {
@@ -53,6 +55,8 @@ class Auth{
             role:user.role,
             id:user.id
         }
+
+
 
         const token = this.#createToken(userData)
         return {
