@@ -1,2 +1,2 @@
 nose_modules/
-*.env
+.env
